@@ -1,0 +1,9 @@
+#!/bin/bash
+
+. /root/myfunctions
+
+echo MIDDLE ${MIDDLE}
+gpio_export ${MIDDLE}
+gpio_direction ${MIDDLE}
+gpio_status ${MIDDLE}
+

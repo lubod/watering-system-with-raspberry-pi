@@ -1,0 +1,12 @@
+/root/middle_on
+sleep 5
+echo
+/root/pump_on
+sleep 420
+echo
+/root/pump_off
+sleep 5
+echo
+/root/middle_off
+echo
+

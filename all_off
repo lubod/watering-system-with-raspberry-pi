@@ -1,0 +1,10 @@
+#!/bin/bash
+
+/root/pump_off
+echo
+/root/western_off 
+echo
+/root/middle_off
+echo
+/root/eastern_off
+

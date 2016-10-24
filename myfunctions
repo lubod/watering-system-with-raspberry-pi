@@ -1,0 +1,55 @@
+#!/bin/bash
+
+export WESTERN=22
+export MIDDLE=10
+export EASTERN=9
+export PUMP=3
+export ON=0
+export OFF=1
+
+function gpio_export {
+	ls /sys/class/gpio/gpio$1/value > /dev/null 2>&1
+	if [ $? -eq "0" ]
+	then
+		echo export: exist
+	else
+		echo "$1" > /sys/class/gpio/export
+		echo export: created
+	fi
+}
+
+function gpio_direction {
+	DIRECTION=`cat /sys/class/gpio/gpio$1/direction`
+
+	if [ ${DIRECTION} == "out" ]
+	then
+		echo direction: out
+	else
+        	echo "out" > /sys/class/gpio/gpio$1/direction
+        	echo direction: set to out
+	fi
+}
+
+function gpio_status {
+	VALUE=`cat /sys/class/gpio/gpio$1/value`
+
+	if [ ${VALUE} -eq "1" ]
+	then
+	        echo status: OFF
+	elif [ ${VALUE} -eq "0" ]
+	then
+	        echo status: ON
+	else
+	        echo status: UNKNOWN
+	fi
+}
+
+function gpio {
+	echo "$2" > /sys/class/gpio/gpio$1/value
+	echo $2 set to gpio $1
+}
+
+function cpu_temp {
+	/opt/vc/bin/vcgencmd measure_temp
+}
+

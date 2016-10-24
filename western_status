@@ -1,0 +1,9 @@
+#!/bin/bash
+
+. /root/myfunctions
+
+echo WESTERN ${WESTERN}
+gpio_export ${WESTERN}
+gpio_direction ${WESTERN}
+gpio_status ${WESTERN}
+

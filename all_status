@@ -1,0 +1,20 @@
+#!/bin/bash
+. /root/myfunctions
+
+cpu_temp
+echo
+/root/pump_status
+echo
+/root/western_status 
+echo
+/root/middle_status
+echo
+/root/eastern_status
+echo
+if test -e /root/pause
+then
+	echo CRON: paused
+else
+	echo CRON: scheduled
+fi
+

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+. /root/myfunctions
+
+echo EASTERN ${EASTERN}
+gpio_export ${EASTERN}
+gpio_direction ${EASTERN}
+gpio ${EASTERN} ${OFF}
+gpio_status ${EASTERN}

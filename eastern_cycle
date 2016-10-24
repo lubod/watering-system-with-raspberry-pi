@@ -1,0 +1,11 @@
+/root/eastern_on
+sleep 5
+echo
+/root/pump_on
+sleep 240
+echo
+/root/pump_off
+sleep 5
+echo
+/root/eastern_off
+echo

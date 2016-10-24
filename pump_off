@@ -1,0 +1,9 @@
+#!/bin/bash
+
+. /root/myfunctions
+
+echo PUMP ${PUMP}
+gpio_export ${PUMP}
+gpio_direction ${PUMP}
+gpio ${PUMP} ${OFF}
+gpio_status ${PUMP}
