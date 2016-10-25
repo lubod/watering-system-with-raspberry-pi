@@ -1,0 +1,58 @@
+<html>
+	<head>
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type="text/javascript" charset="utf-8" src="data.js"></script>
+	</head>
+<body onload="getStatus()">
+	<div>
+		<div>
+			<span>
+		                <button style="width:16em" id="showButton" name="showButton" type="button" onclick="getStatus()">Status</button>
+			</span>
+                        <span id="temp"></span>
+		</div>
+		<div>
+			<span>
+	        	        <button style="width:8em" id="pause" name="pause" type="button" onclick="pause()">Pause</button>
+		                <button style="width:8em;float:left" id="UNpause" name="UNpause" type="button" onclick="UNpause()">UNPause</button>
+			</span>
+			<span id="cron"></span>
+		</div>
+		<div>
+			<span>
+		                <button style="width:8em" id="pumpON" name="pumpON" type="button" onclick="pumpON()">Pump ON</button>
+        		        <button style="width:8em;float:left" id="pumpOFF" name="pumpOFF" type="button" onclick="pumpOFF()">Pump OFF</button>
+			</span>
+			<span id="pump"></span>
+		</div>
+		<div>
+			<span>
+	        	        <button style="width:8em" id="westernON" name="westernON" type="button" onclick="westernON()">Western ON</button>
+        	        	<button style="width:8em;float:left" id="westernOFF" name="westernOFF" type="button" onclick="westernOFF()">Western OFF</button>
+			</span>
+			<span id="western"></span>
+		</div>
+		<div>
+			<span>
+		                <button style="width:8em" id="middleON" name="westernON" type="button" onclick="middleON()">Middle ON</button>
+        		        <button style="width:8em;float:left" id="middleOFF" name="westernOFF" type="button" onclick="middleOFF()">Middle OFF</button>
+			</span>
+			<span id="middle"></span>
+		</div>
+		<div>
+			<span>
+	        	        <button style="width:8em" id="westernON" name="easternON" type="button" onclick="easternON()">Eastern ON</button>
+        	        	<button style="width:8em;float:left" id="westernOFF" name="easternOFF" type="button" onclick="easternOFF()">Eastern OFF</button>
+			</span>
+			<span id="eastern"></span>
+		</div>
+		<div>
+			<button style="width:16em" id="getLog" name="getLog" type="button" onclick="getLog()">Get Log</button>
+		</div>
+	</div>
+	<pre>
+		<div id="log">
+		</div>
+	</pre>
+</body>
+</html>
