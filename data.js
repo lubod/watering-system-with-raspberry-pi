@@ -55,6 +55,22 @@ function UNpause() {
         httpGetAsync("/UNpause", getStatus);
 }
 
+function westernCycle() {
+        httpGetAsync("/westernCycle", getStatus);
+}
+
+function middleCycle() {
+        httpGetAsync("/middleCycle", getStatus);
+}
+
+function easternCycle() {
+        httpGetAsync("/easternCycle", getStatus);
+}
+
+function allCycle() {
+        httpGetAsync("/allCycle", getStatus);
+}
+
 function httpGetAsync(theUrl, callback)
 {
     var xmlHttp = new XMLHttpRequest();

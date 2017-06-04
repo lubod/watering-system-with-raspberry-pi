@@ -1,4 +1,4 @@
-// http://nodejs.org/api.html#_child_processes
+\// http://nodejs.org/api.html#_child_processes
 
 var sys = require('sys')
 var exec = require('child_process').exec;
@@ -87,6 +87,34 @@ app.get('/pause', function (req, res) {
 
 app.get('/UNpause', function (req, res) {
         exec("rm /root/pause", function(err, stdout, stderr) {
+                res.type('text/plain');
+                res.send( stdout );
+        });
+})
+
+app.get('/westernCycle', function (req, res) {
+        exec("rm /root/western_cycle", function(err, stdout, stderr) {
+                res.type('text/plain');
+                res.send( stdout );
+        });
+})
+
+app.get('/middleCycle', function (req, res) {
+        exec("rm /root/middle_cycle", function(err, stdout, stderr) {
+                res.type('text/plain');
+                res.send( stdout );
+        });
+})
+
+app.get('/easternCycle', function (req, res) {
+        exec("rm /root/eastern_cycle", function(err, stdout, stderr) {
+                res.type('text/plain');
+                res.send( stdout );
+        });
+})
+
+app.get('/allCycle', function (req, res) {
+        exec("rm /root/all_cycle", function(err, stdout, stderr) {
                 res.type('text/plain');
                 res.send( stdout );
         });

@@ -5,12 +5,12 @@ then
 	exit 0
 fi
 
+/root/middle_cycle
+sleep 5
+date
 /root/western_cycle
 sleep 5
 date
 /root/eastern_cycle
-sleep 5
-date
-/root/middle_cycle
 date
 /root/all_status
