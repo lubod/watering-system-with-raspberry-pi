@@ -1,4 +1,4 @@
-\// http://nodejs.org/api.html#_child_processes
+// http://nodejs.org/api.html#_child_processes
 
 var sys = require('sys')
 var exec = require('child_process').exec;
