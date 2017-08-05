@@ -93,28 +93,28 @@ app.get('/UNpause', function (req, res) {
 })
 
 app.get('/westernCycle', function (req, res) {
-        exec("rm /root/western_cycle", function(err, stdout, stderr) {
+        exec("/root/western_cycle", function(err, stdout, stderr) {
                 res.type('text/plain');
                 res.send( stdout );
         });
 })
 
 app.get('/middleCycle', function (req, res) {
-        exec("rm /root/middle_cycle", function(err, stdout, stderr) {
+        exec("/root/middle_cycle", function(err, stdout, stderr) {
                 res.type('text/plain');
                 res.send( stdout );
         });
 })
 
 app.get('/easternCycle', function (req, res) {
-        exec("rm /root/eastern_cycle", function(err, stdout, stderr) {
+        exec("/root/eastern_cycle", function(err, stdout, stderr) {
                 res.type('text/plain');
                 res.send( stdout );
         });
 })
 
 app.get('/allCycle', function (req, res) {
-        exec("rm /root/all_cycle", function(err, stdout, stderr) {
+        exec("/root/all_cycle", function(err, stdout, stderr) {
                 res.type('text/plain');
                 res.send( stdout );
         });

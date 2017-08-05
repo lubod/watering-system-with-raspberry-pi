@@ -1,7 +1,7 @@
 date
 if test -e /root/pause
 then
-	echo STOP
+	echo PAUSED
 	exit 0
 fi
 
