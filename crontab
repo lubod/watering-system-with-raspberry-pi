@@ -20,7 +20,11 @@
 # For more information see the manual pages of crontab(5) and cron(8)
 # 
 # m h  dom mon dow   command
-0 20 * * * /root/all_cycle >/root/log 2>&1
-0 4 * * * /root/all_cycle >/root/log 2>&1
-@reboot /root/all_off >/root/reboot_log 2>&1
+
+@reboot /root/all_off
+@reboot nodejs /root/.k/main.js
+0 00 */2 * * /root/all_cycle > /root/log
+0 03 */2 * * /root/all_cycle > /root/log
+* * * * * /root/.k/k
+
 
