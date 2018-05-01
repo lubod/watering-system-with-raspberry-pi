@@ -51,5 +51,6 @@ function gpio {
 
 function cpu_temp {
 	/opt/vc/bin/vcgencmd measure_temp
+	cat /root/.k/data/k_th
 }
 
