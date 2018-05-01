@@ -4,11 +4,13 @@
 		<script type="text/javascript" charset="utf-8" src="data.js"></script>
 	</head>
 <body onload="getStatus()">
-	<div>
+	<div style="width:16em">
 		<div>
 			<span>
 		                <button style="width:16em" id="showButton" name="showButton" type="button" onclick="getStatus()">Status</button>
 			</span>
+		</div>
+		<div>
                         <span id="temp"></span>
 		</div>
 		<div>
@@ -16,6 +18,8 @@
 	        	        <button style="width:8em" id="pause" name="pause" type="button" onclick="pause()">Pause</button>
 		                <button style="width:8em;float:left" id="UNpause" name="UNpause" type="button" onclick="UNpause()">UNPause</button>
 			</span>
+		</div>
+		<div>
 			<span id="cron"></span>
 		</div>
 		<div>
@@ -23,6 +27,8 @@
 		                <button style="width:8em" id="pumpON" name="pumpON" type="button" onclick="pumpON()">Pump ON</button>
         		        <button style="width:8em;float:left" id="pumpOFF" name="pumpOFF" type="button" onclick="pumpOFF()">Pump OFF</button>
 			</span>
+                </div>
+                <div>
 			<span id="pump"></span>
 		</div>
 		<div>
@@ -30,6 +36,8 @@
 	        	        <button style="width:8em" id="westernON" name="westernON" type="button" onclick="westernON()">Western ON</button>
         	        	<button style="width:8em;float:left" id="westernOFF" name="westernOFF" type="button" onclick="westernOFF()">Western OFF</button>
 			</span>
+                </div>
+                <div>
 			<span id="western"></span>
 		</div>
 		<div>
@@ -37,6 +45,8 @@
 		                <button style="width:8em" id="middleON" name="middleON" type="button" onclick="middleON()">Middle ON</button>
         		        <button style="width:8em;float:left" id="middleOFF" name="westernOFF" type="button" onclick="middleOFF()">Middle OFF</button>
 			</span>
+                </div>
+                <div>
 			<span id="middle"></span>
 		</div>
 		<div>
@@ -44,21 +54,32 @@
 	        	        <button style="width:8em" id="easternON" name="easternON" type="button" onclick="easternON()">Eastern ON</button>
         	        	<button style="width:8em;float:left" id="westernOFF" name="easternOFF" type="button" onclick="easternOFF()">Eastern OFF</button>
 			</span>
+                </div>
+                <div>
 			<span id="eastern"></span>
 		</div>
                 <div>
                         <button style="width:16em" id="westernCycle" name="westernCycle" type="button" onclick="westernCycle()">Western Cycle</button>
                 </div>
                 <div>
+			----------------------------------------
+                </div>
+                <div>
                         <button style="width:16em" id="middleCycle" name="middleCycle" type="button" onclick="middleCycle()">Middle Cycle</button>
                 </div>
                 <div>
+                        ----------------------------------------
+                </div>                <div>
                         <button style="width:16em" id="easternCycle" name="easterCycle" type="button" onclick="easternCycle()">Eastern Cycle</button>
                 </div>
                 <div>
+                        ----------------------------------------
+                </div>                <div>
                         <button style="width:16em" id="allCycle" name="allCycle" type="button" onclick="allCycle()">All Cycle</button>
                 </div>
-		<div>
+                <div>
+                        ----------------------------------------
+                </div>		<div>
 			<button style="width:16em" id="getLog" name="getLog" type="button" onclick="getLog()">Get Log</button>
 		</div>
 	</div>
