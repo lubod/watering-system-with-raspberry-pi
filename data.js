@@ -97,7 +97,7 @@ function show_status(sres, prefix, tag) {
 
 function show(res) {
 	var sres = res.split("\n\n");
-        document.getElementById("temp").innerHTML = "CPU " + res.match(/temp=.*C/);
+        document.getElementById("temp").innerHTML = "CPU " + sres[0];
 	show_status(sres[1], "PUMP", "pump");
         show_status(sres[2], "WESTERN", "western");
         show_status(sres[3], "MIDDLE", "middle");
