@@ -24,6 +24,6 @@
 @reboot /root/all_off
 @reboot nodejs /root/main.js
 0 00 */2 * * /root/all_cycle > /root/log
-0 03 */2 * * /root/all_cycle > /root/log
+0 03 */2 * * /root/all_cycle >> /root/log
 
 
