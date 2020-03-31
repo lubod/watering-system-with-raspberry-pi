@@ -1,12 +1,12 @@
 function getStatus() {
 	document.getElementById("showButton").textContent="Loading ...";
 	document.getElementById("showButton").disabled=true;
-	document.getElementById("pump").innerHTML = "";
-	document.getElementById("western").innerHTML = "";
-	document.getElementById("middle").innerHTML = "";
-        document.getElementById("eastern").innerHTML = "";
-        document.getElementById("temp").innerHTML = "";
-	document.getElementById("cron").innerHTML = "";
+	document.getElementById("pump").innerHTML = "PUMP 3 status: ?";
+	document.getElementById("western").innerHTML = "WESTERN 22 status: ?";
+	document.getElementById("middle").innerHTML = "MIDDLE 10 status: ?";
+        document.getElementById("eastern").innerHTML = "EASTERN 9 status: ?";
+        document.getElementById("temp").innerHTML = "CPU temp=? Temp=? Humidity=?";
+	document.getElementById("cron").innerHTML = "CRON: ?";
 	httpGetAsync("/getStatus", show);
 }
 
