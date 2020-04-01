@@ -1,12 +1,35 @@
+let state = {
+	cron: false,
+	western: false,
+	middle: false,
+	eastern: false
+}
+
+function setBtnsDisabled(disabled) {
+        document.getElementById("showButton").disabled = disabled;
+        document.getElementById("pumpBtn").disabled = disabled;
+        document.getElementById("westernBtn").disabled = disabled;
+        document.getElementById("middleBtn").disabled = disabled;
+        document.getElementById("easternBtn").disabled = disabled;
+        document.getElementById("cronBtn").disabled = disabled;
+        document.getElementById("allCycle").disabled = disabled;
+        document.getElementById("westernCycle").disabled = disabled;
+        document.getElementById("middleCycle").disabled = disabled;
+        document.getElementById("easternCycle").disabled = disabled;
+        document.getElementById("getLog").disabled = disabled;
+
+}
+
 function getStatus() {
-	document.getElementById("showButton").textContent="Loading ...";
-	document.getElementById("showButton").disabled=true;
-	document.getElementById("pump").innerHTML = "PUMP 3 status: ?";
-	document.getElementById("western").innerHTML = "WESTERN 22 status: ?";
-	document.getElementById("middle").innerHTML = "MIDDLE 10 status: ?";
-        document.getElementById("eastern").innerHTML = "EASTERN 9 status: ?";
-        document.getElementById("temp").innerHTML = "CPU temp=? Temp=? Humidity=?";
+	document.getElementById("showButton").textContent = "Loading ...";
+        document.getElementById("pump").innerHTML = "PUMP 3: ?";
+	document.getElementById("western").innerHTML = "WESTERN 22: ?"; 
+	document.getElementById("middle").innerHTML = "MIDDLE 10: ?";
+        document.getElementById("eastern").innerHTML = "EASTERN 9: ?";
+        document.getElementById("cputemp").innerHTML = "CPU temp=?";
+        document.getElementById("temp").innerHTML = "Temp=? Humidity=?";
 	document.getElementById("cron").innerHTML = "CRON: ?";
+	setBtnsDisabled(true);
 	httpGetAsync("/getStatus", show);
 }
 
@@ -23,12 +46,30 @@ function pumpOFF() {
         httpGetAsync("/pumpOFF", getStatus);
 }
 
+function westernBtnClicked() {
+        if (state.western === true) {
+                westernOFF();
+        }
+        else {
+                westernON();
+        }
+}
+
 function westernON() {
         httpGetAsync("/westernON", getStatus);
 }
 
 function westernOFF() {
 	httpGetAsync("/westernOFF", getStatus);
+}
+
+function middleBtnClicked() {
+        if (state.middle === true) {
+                middleOFF();
+        }
+        else {
+                middleON();
+        }
 }
 
 function middleON() {
@@ -39,12 +80,30 @@ function middleOFF() {
         httpGetAsync("/middleOFF", getStatus);
 }
 
+function easternBtnClicked() {
+        if (state.eastern === true) {
+                easternOFF();
+        }
+        else {
+                easternON();
+        }
+}
+
 function easternON() {
         httpGetAsync("/easternON", getStatus);
 }
 
 function easternOFF() {
         httpGetAsync("/easternOFF", getStatus);
+}
+
+function cronBtnClicked() {
+	if (state.cron === true) {
+		pause();
+	}
+	else {
+		UNpause();
+	}
 }
 
 function pause() {
@@ -83,34 +142,49 @@ function httpGetAsync(theUrl, callback)
 }
 
 function show_status(sres, prefix, tag) {
-        var lines = sres.split("\n");
+        const lines = sres.split("\n");
+	const status = lines[3].split(":");
+	const onoff = status[1].trim();
         if (lines[0].startsWith(prefix)) {
-                document.getElementById(tag).innerHTML = lines[0] + " " + lines[3];
-		if (lines[3].trim().endsWith("OFF")) {
-			document.getElementById(tag).style.color = "green";
+                document.getElementById(tag).innerHTML = lines[0] + ": " + onoff;
+		if (onoff === "OFF") {
+			state[tag] = false;
+			document.getElementById(tag).style.color = "red";
+			document.getElementById(tag + "Btn").innerHTML = "ON";
 		}
 		else {
-			document.getElementById(tag).style.color = "blue";
+			state[tag] = true;
+			document.getElementById(tag).style.color = "green";
+                        document.getElementById(tag + "Btn").innerHTML = "OFF";
 		}
         }
+	console.log(document.getElementById(tag).innerHTML);
 }
 
 function show(res) {
-	var sres = res.split("\n\n");
-        document.getElementById("temp").innerHTML = "CPU " + sres[0];
+	const sres = res.split("\n\n");
+        const temp = sres[0].split("\n");
+	console.log(temp);
+	document.getElementById("cputemp").innerHTML = "CPU " + temp[0];
+        document.getElementById("temp").innerHTML = temp[1];
 	show_status(sres[1], "PUMP", "pump");
         show_status(sres[2], "WESTERN", "western");
         show_status(sres[3], "MIDDLE", "middle");
         show_status(sres[4], "EASTERN", "eastern");
  	document.getElementById("cron").innerHTML=sres[5];
 	if (sres[5].trim().endsWith("scheduled")) {
+		state.cron = true;
 		document.getElementById("cron").style.color = "green";
+		document.getElementById("cronBtn").innerHTML = "Pause";
 	}
 	else {
+		state.cron = false;
 		document.getElementById("cron").style.color = "red";
+                document.getElementById("cronBtn").innerHTML = "UNpause";
 	}
         document.getElementById("showButton").textContent="Status";
-        document.getElementById("showButton").disabled=false;
+	setBtnsDisabled(false);
+	console.log(state);
 }
 
 function showLog(res) {

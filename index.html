@@ -12,124 +12,88 @@
 		<script type="text/javascript" charset="utf-8" src="data.js"></script>
 	</head>
 <body onload="getStatus()">
-	<div class="container">
-		<div class="row">
+	<div class="container card">
+		<div class="card-body">
+		<div class="row mb-3">
 			<div class="col">
 		                <button class="btn btn-primary btn-block" id="showButton" name="showButton" type="button" onclick="getStatus()">Status</button>
 			</div>
 		</div>
-		<div class="row">
-                        <div class="col" id="temp">
-			CPU temp=? Temp=? Humidity=?
-
+		<div class="row mb-3">
+                        <div class="col text-center" id="cputemp">
+			CPU temp=?
 			</div>
 		</div>
-		<div class="row">
-			<div class="col">
-	               		<button class="btn btn-secondary btn-block" id="UNpause" name="UNpause" type="button" onclick="UNpause()">UNPause</button>
-			</div>
-			<div class="col">
-				<button class="btn btn-secondary btn-block" id="pause" name="pause" type="button" onclick="pause()">Pause</button>
-			</div>
+                <div class="row">
+                        <div class="col text-center" id="temp">
+                        Temp=? Humidity=?
+                        </div>
+                </div>
 		</div>
-		<div class="row">
-			<div class="col" id="cron">
+	</div>
+	<div class="container card">
+		<div class="card-body">
+		<div class="row mb-3">
+			<div class="col-6" id="cron">
 			CRON: ?
 			</div>
+                        <div class="col-6">
+                                <button class="btn btn-secondary btn-block" id="cronBtn" type="button" onclick="cronBtnClicked()">?</button>
+                        </div>
 		</div>
-		<div class="row">
-			<div class="col">
-				<button class="btn btn-secondary btn-block" id="pumpON" name="pumpON" type="button" onclick="pumpON()">Pump ON</button>
-			</div>
-			<div class="col">
-				<button class="btn btn-secondary btn-block" id="pumpOFF" name="pumpOFF" type="button" onclick="pumpOFF()">Pump OFF</button>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col" id="pump">
-			PUMP 3 status: ?
+		<div class="row mb-3">
+                        <div class="col-6" id="pump">
+                        PUMP 3: ?
+                        </div>
+			<div class="col-6">
+				<button class="btn btn-secondary btn-block" id="pumpBtn" type="button" onclick="pumpBtnClicked()">?</button>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col">
-				<button class="btn btn-secondary btn-block" id="westernON" name="westernON" type="button" onclick="westernON()">Western ON</button>
+                <div class="row mb-3">
+			<div class="col-6" id="western">
+			WESTERN 22: ?
 			</div>
-			<div class="col">
-				<button class="btn btn-secondary btn-block" id="westernOFF" name="westernOFF" type="button" onclick="westernOFF()">Western OFF</button>
-			</div>
-		</div>
-                <div class="row">
-			<div class="col" id="western">
-			WESTERN 22 status: ?
-			</div>
-		</div>
-		<div class="row">
-			<div class="col">
-		                <button class="btn btn-secondary btn-block" id="middleON" name="middleON" type="button" onclick="middleON()">Middle ON</button>
-			</div>
-			<div class="col">
-        		        <button class="btn btn-secondary btn-block" id="middleOFF" name="westernOFF" type="button" onclick="middleOFF()">Middle OFF</button>
+			<div class="col-6">
+		                <button class="btn btn-secondary btn-block" id="westernBtn" type="button" onclick="westernBtnClicked()">?</button>
 			</div>
                 </div>
-                <div class="row">
-			<div class="col" id="middle">
-			MIDDLE 10 status: ?
+                <div class="row mb-3">
+			<div class="col-6" id="middle">
+			MIDDLE 10: ?
 			</div>
+			<div class="col-6">
+        	        	<button class="btn btn-secondary btn-block" id="middleBtn" type="button" onclick="middleBtnClicked()">?</button>
+			</div>
+                </div>
+                <div class="row mb-3">
+			<div class="col-6" id="eastern">
+			EASTERN 9: ?
+			</div>
+                        <div class="col-6">
+				<button class="btn btn-secondary btn-block" id="easternBtn" type="button" onclick="easternBtnClicked()">?</button>
+                        </div>
 		</div>
-		<div class="row">
-			<div class="col">
-	        	        <button class="btn btn-secondary btn-block" id="easternON" name="easternON" type="button" onclick="easternON()">Eastern ON</button>
-			</div>
-			<div class="col">
-        	        	<button class="btn btn-secondary btn-block" id="westernOFF" name="easternOFF" type="button" onclick="easternOFF()">Eastern OFF</button>
-			</div>
-                </div>
-                <div class="row">
-			<div class="col" id="eastern">
-			EASTERN 9 status: ?
-			</div>
 		</div>
-                <div class="row">
-			<div class="col">
-	                        <button class="btn btn-secondary btn-block" id="westernCycle" name="westernCycle" type="button" onclick="westernCycle()">Western Cycle</button>
-			</div>
+	</div>
+	<div class="container card">
+		<div class="card-body">
+	        <div class="row mb-3">
+                        <div class="col-4">
+                                <button class="btn btn-secondary btn-block" id="easternCycle" name="easterCycle" type="button" onclick="easternCycle()">Eastern Cycle</button>
+                        </div>
+                        <div class="col-4">
+                                <button class="btn btn-secondary btn-block" id="middleCycle" name="middleCycle" type="button" onclick="middleCycle()">Middle Cycle</button>
+                        </div>
+			<div class="col-4">
+                                <button class="btn btn-secondary btn-block" id="westernCycle" name="westernCycle" type="button" onclick="westernCycle()">Western Cycle</button>
+                        </div>
                 </div>
-                <div class="row">
-			<div class="col">
-			----------------------------------------
-			</div>
-                </div>
-                <div class="row">
-			<div class="col">
-				<button class="btn btn-secondary btn-block" id="middleCycle" name="middleCycle" type="button" onclick="middleCycle()">Middle Cycle</button>
-			</div>
-                </div>
-                <div class="row">
-			<div class="col">
-                        ----------------------------------------
-			</div>
-                </div>                
-		<div class="row">
-			<div class="col">
-	                        <button class="btn btn-secondary btn-block" id="easternCycle" name="easterCycle" type="button" onclick="easternCycle()">Eastern Cycle</button>
-			</div>
-                </div>
-                <div class="row">
-			<div class="col">
-                        ----------------------------------------
-			</div>
-                </div>                
-		<div class="row">
+		<div class="row mb-3">
 			<div class="col">
 				<button class="btn btn-secondary btn-block" id="allCycle" name="allCycle" type="button" onclick="allCycle()">All Cycle</button>
 			</div>
                 </div>
-                <div class="row">
-			<div class="col">
-                        ----------------------------------------
-			</div>
-                </div>		
-		<div class="row">
+		<div class="row mb-3">
 			<div class="col">
 				<button class="btn btn-secondary btn-block" id="getLog" name="getLog" type="button" onclick="getLog()">Get Log</button>
 			</div>
@@ -138,6 +102,7 @@
 			<div id="log">
 			</div>
 		</pre>
+		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
