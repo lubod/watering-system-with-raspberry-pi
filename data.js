@@ -2,7 +2,8 @@ let state = {
 	cron: false,
 	western: false,
 	middle: false,
-	eastern: false
+	eastern: false,
+	pump: false
 }
 
 function setBtnsDisabled(disabled) {
@@ -36,6 +37,15 @@ function getStatus() {
 function getLog() {
         document.getElementById("log").innerHTML = "";
         httpGetAsync("/getLog", showLog);
+}
+
+function pumpBtnClicked() {
+        if (state.pump === true) {
+                pumpOFF();
+        }
+        else {
+                pumpON();
+        }
 }
 
 function pumpON() {
