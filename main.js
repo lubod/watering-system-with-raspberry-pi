@@ -120,6 +120,13 @@ app.get('/allCycle', function (req, res) {
         });
 })
 
+app.get('/getTH', function (req, res) {
+        exec("cat /root/.k/data/k_th", function(err, stdout, stderr) {
+                res.type('text/plain');
+                res.send( stdout );
+        });
+})
+
 var server = app.listen(80, function () {
 
   var host = server.address().address
