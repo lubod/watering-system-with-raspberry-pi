@@ -1,0 +1,8 @@
+date
+echo drop
+/root/pump_on
+sleep 3600
+echo
+/root/pump_off
+date
+
