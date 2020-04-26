@@ -19,7 +19,7 @@ def blink(): # Podprogram blink, ktery se bude vykonavat
     else:
       rain += 1
     time.sleep(0.1)
-  print int(round(rain, 0))
+  print int(round(rain/10.0, 0))
 
 def ukonci(): # Podprogram, ktery bude zavolan pri ukonceni programu
   GPIO.cleanup()                   # Uvolneni vsech GPIO portu pro dalsi pouziti
