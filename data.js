@@ -174,9 +174,9 @@ function show_status(sres, prefix, tag) {
 function show(res) {
 	const sres = res.split("\n\n");
         const temp = sres[0].split("\n");
-	console.log(temp);
+//	console.log(temp);
 	document.getElementById("cputemp").innerHTML = "CPU " + temp[0];
-        document.getElementById("temp").innerHTML = temp[1];
+        document.getElementById("temp").innerHTML = temp[1] + " " + temp[2];
 	show_status(sres[1], "PUMP", "pump");
         show_status(sres[2], "WESTERN", "western");
         show_status(sres[3], "MIDDLE", "middle");
