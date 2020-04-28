@@ -1,5 +1,12 @@
 date
-echo drop
+if test -e /root/pause
+then
+        echo PAUSED
+        exit 0
+fi
+
+date
+echo DROP
 /root/pump_on
 sleep 3600
 echo
