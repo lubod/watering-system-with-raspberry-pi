@@ -125,19 +125,31 @@ function UNpause() {
 }
 
 function westernCycle() {
-        httpGetAsync("/westernCycle", getStatus);
+        let res = confirm("Start western cycle?");
+        if (res === true) {
+	        httpGetAsync("/westernCycle", getStatus);
+	}
 }
 
 function middleCycle() {
-        httpGetAsync("/middleCycle", getStatus);
+        let res = confirm("Start middle cycle?");
+        if (res === true) {
+	        httpGetAsync("/middleCycle", getStatus);
+	}
 }
 
 function easternCycle() {
-        httpGetAsync("/easternCycle", getStatus);
+        let res = confirm("Start esstern cycle?");
+        if (res === true) {
+	        httpGetAsync("/easternCycle", getStatus);
+	}
 }
 
 function allCycle() {
-        httpGetAsync("/allCycle", getStatus);
+	let res = confirm("Start all cycle?");
+	if (res === true) {
+                httpGetAsync("/allCycle", getStatus);
+        }
 }
 
 function httpGetAsync(theUrl, callback)
