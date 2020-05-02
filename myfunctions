@@ -3,7 +3,7 @@
 export WESTERN=22
 export MIDDLE=10
 export EASTERN=9
-export PUMP=3
+export PUMP=2
 export ON=0
 export OFF=1
 
