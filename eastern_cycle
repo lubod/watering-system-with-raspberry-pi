@@ -2,7 +2,7 @@
 sleep 5
 echo
 /root/pump_on
-sleep 1200
+sleep 1800
 echo
 /root/pump_off
 sleep 5
